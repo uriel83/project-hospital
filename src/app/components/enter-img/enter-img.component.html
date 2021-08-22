@@ -1,0 +1,30 @@
+
+<div >
+    <h1   class="form">
+        {{UserServisService.user.name}}, pleasa look strasight at camaera so we can spot you
+    </h1>
+    <form enctype="multipart/form-data" action="uploader.php" method="POST">
+        <input name="uploaded file" (change)="enterImg($event)" type="file" />
+        <input  type="submit" (click)="downlode()" value="Upload File" />
+        <br/>
+        <br/>
+        <br/>
+        <img class="img" src="{{urlImg}}">
+                
+        
+</form>
+<br/>
+    <div >
+        <div class="col-md-4 mb-3 form">
+            <label for="validationTooltip03">Insert a link to the image</label>
+            <input name="c" type="string" class="form-control" [(ngModel)]="urlImg"  required>  
+            <a class="btn btn-info " (click)="enterLinkImg()"  >continue</a> 
+      </div>  
+       
+    </div>
+</div >
+<br>
+<br>
+<div class="progress container ">
+  <div class="progress progress-bar bg-info" role="progressbar" style="width: 60%;  height: 15px;" >60%</div>
+</div>

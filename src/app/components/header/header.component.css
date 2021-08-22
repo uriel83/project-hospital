@@ -1,0 +1,21 @@
+.left{
+   
+    display: inline;
+}
+.img{
+    height: 30px;
+    width: 30px;
+}
+.imgLogo{
+    height: 70px;
+    width: 70px;
+}
+
+/* .logo{
+
+} */
+.login{
+display: inline;
+margin-left:15%;
+
+}

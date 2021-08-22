@@ -1,0 +1,33 @@
+<br>
+<div *ngIf="i" class="card" style="width: 24rem;">
+    
+    <div class="card-body">
+          <h5 class="card-title">Name:  {{i.name}}</h5>
+          <img class="img "  src="{{i.img}}" >
+          <br/>
+
+          <button class="btn btn-info  " (click)="clickMoreInfo()">More info</button>
+    </div>
+         
+        
+         
+   <div *ngIf =MoreInfo>
+     <br>
+     
+   
+         <h5 class="card-title">id Number: {{i.idNumber}}</h5>
+         <h5 class="card-title">Id passport: {{i.Idpassport}}</h5>
+         <h5 class="card-title">phon Number: {{i.phonNumber}}</h5>
+         <h5 class="card-title">creation date: {{i.creation_date}}</h5>
+         <h5 class="card-title">email: {{i.email}}</h5>
+         
+         <p class="card-title">ID: {{i._id}}</p> 
+         
+   
+     </div> 
+     
+
+   </div>
+
+   
+   

@@ -1,0 +1,28 @@
+<img class="imgLogo box logo" routerLink="/" src="./assets/logo.jpeg" alt="logo">
+<div class="login">
+    <button type="button" class="btn btn-link" routerLink="app-gat-all-users" >get all users</button>
+    <button type="button" class="btn btn-link" routerLink="app-gat-user" >get user</button>
+    <button type="button" class="btn btn-link" routerLink="enter-img" >enter-img</button>
+    <button type="button" class="btn btn-link" routerLink="questionnaire" >Questionnaire</button>
+    <button type="button" class="btn btn-link" routerLink="app-upload-test">test</button>
+    <button type="button" class="btn btn-link" routerLink="app-newuser">create new user</button>
+</div>
+<div *ngIf="!UserServisService.userLogIn" class="login">
+    <span class="left">Already have an account?</span>
+    <button type="button" class="btn btn-link" routerLink="/log-in" >log in</button>
+</div>
+
+<div *ngIf="UserServisService.userLogIn"  class="login">
+    <span class="left">{{UserServisService.user.name}}  </span>
+    <img class="img box" (click)="frontPage()" src="{{UserServisService.user.img}}" >
+    <button type="button" class="btn btn-link" (click)="logOut()" >Log out</button> 
+   
+</div>
+
+
+
+
+ 
+
+
+

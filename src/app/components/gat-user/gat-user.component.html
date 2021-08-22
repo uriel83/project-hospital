@@ -1,0 +1,29 @@
+
+<div *ngIf="search"  >
+  <div style="float: left; margin: 50px;">
+    <h1>Search user by name</h1>
+    <label for="enterName">enter name</label>
+    <input autofocus type="string" class="form-control" id="enterName" aria-describedby="emailHelp"  [(ngModel)]="UserName" placeholder="Name">
+    <br>
+    <a  class="btn btn-info" (click)="getUserByName()">Search</a>
+  </div>
+  <div style="float: left;  margin: 50px;">
+    <h1>Search user by id Number</h1>
+    <label for="enterName">enter id Number</label>
+    <input autofocus type="string" class="form-control" id="enterName" aria-describedby="emailHelp"  [(ngModel)]="idNumber" placeholder="Id">
+  
+      <br>
+      <a  class="btn btn-info" (click)="getUserByIdNumber()">Search</a>
+    </div>
+  <br>
+  <br>
+</div>
+<div class="row ">
+  <div class="col-md-3 my-5"  *ngFor ='let i of user'>
+        <app-print-user [i]="i"></app-print-user>
+</div> 
+
+</div>
+<button *ngIf="!search" class="btn btn-info" (click)="clickNewSearch()"> new search</button>
+
+

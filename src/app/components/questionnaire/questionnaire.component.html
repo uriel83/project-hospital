@@ -1,0 +1,41 @@
+<h5 > {{UserServisService.user.name}}, Please tell us yourself, personally</h5>
+<div class="form ">
+    <form class="needs-validation col-6 mg-40" novalidate>
+      
+  
+        <div class="form-row">
+            <div class="col-md-4 mb-3 ">
+              <label for="validationTooltip01">age</label>
+              <input autofocus name="age" type="number" class="form-control" [(ngModel)]="age"  required>
+            
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="validationTooltip02">country</label>
+              <input name="country" type="text" class="form-control" [(ngModel)]="country"  required> 
+            </div>
+        </div>
+        
+          
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <label for="validationTooltip03">city</label>
+              <input name="city" type="text" class="form-control" [(ngModel)]="city"  required>   
+            </div>
+            <div class="col-md-4 mb-3">
+                  <label for="validationTooltip03">graduation_year</label>
+                  <input name="graduation_year" type="number" class="form-control" [(ngModel)]="graduation_year"  required>   
+            </div>  
+            <div class="col-md-4 mb-3">
+              <label for="validationTooltip03">academic_institution</label>
+              <input name="academic_institution" type="text" class="form-control" [(ngModel)]="academic_institution"  required>   
+        </div>   
+          </div>
+        
+        <br>
+        
+    </form>
+    
+  </div>
+  <div>
+    <a class="btn btn-primary " (click)="Update()">continue</a>
+  </div>

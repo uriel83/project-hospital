@@ -1,0 +1,61 @@
+<div *ngIf="!next">
+    <h5 > {{UserServisService.user.name}}, Please tell us yourself, personally</h5>
+    <!-- <a class="btn btn-info" (click)="getAllSupervizor()">get All Supervizor</a> -->
+<div class="row ">
+    <div class="col-md-3 my-5"  *ngFor ='let i of supervizors'>
+      <div *ngIf="i" class="card" style="width: 24rem;">
+    
+        <div class="card-body">
+              <img class="img " (click)="select(i)" src="{{i.img}}" >            
+              <br/>          
+              <br/>
+              <h5 class="card-title">Name:  {{i.name}}</h5>
+              <h5 class="card-title">id Number: {{i.medical_institution}}</h5>
+              <h5 class="card-title">Id passport: {{i.department}}</h5>
+          
+            
+            
+           </div>  
+       </div>
+  </div> 
+</div>
+
+    <div class="form ">
+        <form class="needs-validation col-6 mg-40" novalidate>
+         
+      
+            <div class="form-row">
+                <div class="col-md-4 mb-3 ">
+                  <label for="validationTooltip01">medical_institution</label>
+                  <input autofocus name="medical_institution" type="text" class="form-control" [(ngModel)]="medical_institution"  required>
+                
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="validationTooltip02">residency</label>
+                  <input name="residency" type="text" class="form-control" [(ngModel)]="residency"  required> 
+                </div>
+          
+                <div class="col-md-4 mb-3">
+                  <label for="validationTooltip03">department</label>
+                  <input name="department" type="text" class="form-control" [(ngModel)]="department"  required>   
+                </div>
+                  
+              </div>
+            
+            <br>
+            <a class="btn btn-primary " (click)="Update()">Done</a>
+        </form>
+        
+      </div>
+      
+</div>
+<div *ngIf="next">
+  <br/><br/><br/>
+  <h1 > {{UserServisService.user.name}}, uour profile is ready!</h1>
+  <br/>
+  <br/><br/><br/>
+  <h5>Now you can start using the Simulator system: practise, do tests and monitor your progress</h5>
+  <div>
+    <a class="btn btn-primary " (click)="finsh()">Log in</a>
+  </div>
+</div>

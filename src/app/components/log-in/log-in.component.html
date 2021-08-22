@@ -1,0 +1,39 @@
+
+<div *ngIf="!UserServisService.userLogIn">
+    <div class="text-center align-self-center col3 form">
+
+      <form class=" col-4 align-self-center text-center">
+      
+          <div *ngIf="viaMail" class="form-group  box">
+            <label for="exampleInputEmail1">Login via email     <button type="button" class="btn btn-link" (click)=LoginVia() >To login via Id number</button></label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" [(ngModel)]="email" placeholder="email ">          
+          </div>
+
+          <div *ngIf="viaIdNumber" class="form-group  box">
+            <label for="IdNumber1">Login via Id number  <button type="button" class="btn btn-link" (click)=LoginVia() >To login via email</button></label>
+            <input type="email" class="form-control" id="IdNumber1" aria-describedby="emailHelp" name="idNumber"[(ngModel)]="idNumber" placeholder="Id number ">            
+          </div>
+
+          <div  class="form-group box ">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password" [(ngModel)]="password" placeholder="Password">
+          
+         </div>     
+      </form>
+
+    </div>
+    <button *ngIf="viaIdNumber" type="submit" class="btn btn-info box login" (click)=logInById()>log in</button>
+    <button *ngIf="viaMail" type="submit" class="btn btn-info box" (click)=logInByEmail()>log in</button>
+    <br>
+    <p  class="form-text text-muted">If you have not yet registered, <button type="button" class="btn btn-link" routerLink="/register" >click here</button></p>
+</div>
+<div *ngIf="UserServisService.userLogIn">
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <h1>{{UserServisService.user.name}}, התחברת בהצלחה</h1>
+  <button *ngIf="viaIdNumber" type="submit" class="btn btn-info box " (click)=continue()>continue</button>
+</div>
+
+ 

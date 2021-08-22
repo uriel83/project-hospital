@@ -1,0 +1,37 @@
+<div class="form ">
+  
+    <form class="needs-validation col-6 mg-40" novalidate>
+      
+        <div class="form-row">
+            <div class="col-md-4 mb-3 ">
+              <label for="validationTooltip01">Superivisor</label>
+              <input autofocus name="Superivisor" type="text" class="form-control" [(ngModel)]="Superivisor"  required>
+            
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="validationTooltip02">profession</label>
+              <input name="profession" type="text" class="form-control" [(ngModel)]="profession"  required> 
+            </div>
+        </div>  
+        <br>        
+    </form>
+    <form enctype="multipart/form-data" action="uploader.php" method="POST">
+
+        <input   #ff name="uploaded file" (change)="enterTest($event)" type="file" style="display: none;" />
+        <button  class='btn btn-info ml-3' (click)='ff.click()'>להעלאת מבחן</button>
+        <input  type="submit" (click)="Upload()" value="Upload File" style="display: none;"/>
+        <br/>
+        <br/>
+        <br/>
+        <!-- <img class="img" src="{{urlImg}}"> -->
+                
+        
+    </form>
+<div>{{urlTest}}</div>
+
+<a class="btn btn-info" (click)="getTest()">get All test</a>
+<div class="row ">
+  <div class="col-md-3 my-5"  *ngFor ='let test of tests'>         
+        <a href="{{test.urlTest}}" target="_blanck">{{test.profession}}</a>
+</div> 
+</div>

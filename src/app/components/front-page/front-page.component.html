@@ -1,0 +1,94 @@
+<div class="row">
+    <div  class="card Information col-2" style="float: left;;  margin: 30px;">
+        <div class="card-body">
+            <img class="imgUser "  src="{{user.img}}" >
+            <br/>
+            <br/>
+            <h5 class="card-title">{{user.name}}</h5>
+            
+            <br/>
+
+            <h5 class="card-title">id Number: {{user.idNumber}}</h5>
+            <h5 class="card-title">Id passport: {{user.Idpassport}}</h5>
+            <h5 class="card-title">phon Number: {{user.phonNumber}}</h5>
+            <h5 class="card-title">creation date: {{user.creation_date|date:'d/M/yyyy, h:mm a' }}</h5>
+            <h5 class="card-title">email: {{user.email}}</h5>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <div class="col-6" style="margin-top : 30px;">
+       <div style="margin-left: auto;margin-right: auto;">
+       
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Test</th>
+                    <th> Download Test</th>                                         
+                    <th>Upload Test</th>
+                    <th>Done</th>
+                    <th>Score</th> 
+                    <th>Remarks</th>     
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor ='let test of tests'>
+                    <th>
+                       {{test.profession}}
+                    </th>
+                    <th>    
+                        <a  (click)="downloadTest(test)" >
+                            <img class="imgSymbol box logo"  src="./assets/symbol sownload.jpg" alt="upload-file_logo">
+                        </a>
+                    </th>
+                    <th>
+                        <!-- <img class="imgSymbol box logo" (click)="uploadTest(test)" src="./assets/upload-file.jpg" alt="download_logo"> -->
+                    </th>
+                    <th>
+                        
+                    </th>
+
+                </tr>
+            </tbody>
+        </table>
+       
+    </div>
+</div>
+
+</div>
+<div class="boxUploaded" style="border: 1px solid rgb(85, 189, 226) ; background-color: rgb(179, 232, 245);" *ngIf="uploaded">
+    
+    <br/>
+    <p>שים לב,  ניתן להוריד את המבחן פעם אחת בלבד</p>
+    <p>משך המבחן 90 דקות</p>
+    <br/>
+    
+     
+     <h4 *ngIf="end" style="color: rgb(38, 11, 156);">{{this.testServis.completeTest.StartTime |date:'h:mm a'  }} שעת התחלה   </h4>
+    <br/>
+     <p *ngIf="end">יש לשמור את המבחן המלא אצלך במחשב, ולהעלות אותו כקובץ מצורף</p> 
+      <br/>
+    <h3 *ngIf="end" style="color: red;">{{endTest |date:'h:mm a'  }} יש להגיש את המבחן עד השעה   </h3>
+
+     <br/>
+    
+    <form enctype="multipart/form-data" action="uploader.php" method="POST">
+        <input #ff name="uploaded file" (change)="enterTest($event)" type="file" style="display: none;" />
+        <!-- <input class='btn btn-info' type="submit" (click)="UploadCompleteTest()" value="Upload File" /> -->
+        <button *ngIf="end" class='btn btn-info ml-3' (click)='ff.click()'>לשליחת המבחן</button>
+        <button *ngIf="!end" class='btn btn-info ml-3' (click)="upload()"> להורדת המבחן</button>
+       
+       <p *ngIf="end" style="color: rgb(236, 157, 10);">{{minuteTimeLeft}}:{{Second0}}{{SecondTimeLeft}}   הזמן שנותר לסיום המבחן  </p>
+        <br/>
+        <br/>
+       
+       
+        
+        <button *ngIf="uploaded" class='btn btn-info ml-3' (click)="Cencel()"> Cencel</button> 
+        
+    </form>
+
+</div>
+<button type="button" class="btn btn-info" (click)="getTest()" >getTest</button>
+

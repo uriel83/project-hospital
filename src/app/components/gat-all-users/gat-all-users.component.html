@@ -1,0 +1,7 @@
+
+<a class="btn btn-info" (click)="getAllUser()">get All User</a>
+<div class="row ">
+    <div class="col-md-3 my-5"  *ngFor ='let i of users'>
+          <app-print-user [i]="i"></app-print-user>
+  </div> 
+</div>

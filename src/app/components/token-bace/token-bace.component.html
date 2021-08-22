@@ -1,0 +1,43 @@
+
+<div *ngIf="vision">
+    <h5 >Hi {{UserServisService.user.name}}: Please type the mobile verification code you received</h5>
+    <div class="m-5">
+        <input autofocus id="0" type="number" maxlength="1" class="box mr-4 text-center"  [(ngModel)]="code1[0]" (keyup)="next($event)">
+        <input           id="1" type="number" maxlength="1" class="box mr-4 text-center"  [(ngModel)]="code1[1]" (keyup)="next($event)">
+        <input           id="2" type="number" maxlength="1" class="box mr-4 text-center"  [(ngModel)]="code1[2]" (keyup)="next($event)">
+        <input           id="3" type="number" maxlength="1" class="box mr-4 text-center"  [(ngModel)]="code1[3]" (keyup)="next($event)">
+        <button class="btn btn-primary"  (click) ="validation()">Check</button>
+    </div>
+    
+</div>
+<div *ngIf="!vision">
+    <img class="img box"  src="/assets/v.jpeg" alt="approved">
+    <h3>Phone number confirmed</h3>
+    <br>
+<br>
+<div class="progress container ">
+  <div class="progress progress-bar bg-info " role="progressbar" style="width: 40%;  height: 15px;" >40%</div>
+</div>
+</div>
+<div *ngIf="vision">
+    <p>
+        i did not receive, 
+        <button type="button" class="btn btn-link" (click)="createCode()" >resend</button>
+    </p>
+</div>
+<br>
+<br>
+<a *ngIf="!vision" class="btn btn-primary " routerLink="/enter-img">continue</a>
+
+
+<div class="space"></div>
+<div *ngIf="vision" >
+    {{code}}
+
+    <br>
+<br>
+<div class="progress container ">
+  <div class="progress progress-bar bg-info" role="progressbar" style="width: 20%;  height: 15px;" >20%</div>
+</div>
+    
+</div>
